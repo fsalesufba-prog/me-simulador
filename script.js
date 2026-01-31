@@ -165,6 +165,8 @@ class MicroEmpresaAssistant {
                 anexoAlternativo: 'I'
             }
         };
+
+            
         
         // CONSTANTES FISCAIS 2026 - MICROEMPRESAS
         this.CONSTANTS = {
@@ -269,6 +271,27 @@ class MicroEmpresaAssistant {
         };
         
         this.init();
+    }
+
+        checkAuthentication() {
+        const IS_LOGGED_IN_KEY = 'microfiscal_logged_in';
+        const isLoggedIn = localStorage.getItem(IS_LOGGED_IN_KEY) === 'true';
+        
+        // Verificar se o login foi feito há menos de 24 horas
+        const lastLogin = localStorage.getItem('microfiscal_last_login');
+        if (lastLogin) {
+            const loginTime = new Date(lastLogin);
+            const now = new Date();
+            const hoursSinceLogin = (now - loginTime) / (1000 * 60 * 60);
+            
+            if (hoursSinceLogin > 24) {
+                // Logout automático após 24 horas
+                localStorage.removeItem(IS_LOGGED_IN_KEY);
+                return false;
+            }
+        }
+        
+        return isLoggedIn;
     }
     
     init() {
