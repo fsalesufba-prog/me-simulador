@@ -293,15 +293,6 @@ class MicroEmpresaAssistant {
         
         return isLoggedIn;
     }
-
-        // Adicione o método logout:
-logout() {
-    if (confirm('Deseja realmente sair do sistema?')) {
-        localStorage.removeItem('microfiscal_logged_in');
-        localStorage.removeItem('microfiscal_last_login');
-        window.location.href = 'login.html';
-    }
-}
     
     init() {
         this.loadState();
@@ -476,15 +467,12 @@ logout() {
         document.getElementById('print-report').addEventListener('click', () => {
     this.printReport();
 });
-// No setupEventListeners, adicione:
-if (e.target.id === 'logout-btn') {
-    this.logout();
-    return;
+
 }
 
 
             
-    }
+    
     
     navigateTo(section) {
         // Atualizar navegação
