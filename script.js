@@ -432,6 +432,10 @@ class MicroEmpresaAssistant {
         document.getElementById('regime-tributario').addEventListener('change', (e) => {
             this.handleRegimeChange(e.target.value);
         });
+
+        document.getElementById('print-report').addEventListener('click', () => {
+    this.printReport();
+});
     }
     
     navigateTo(section) {
@@ -1812,370 +1816,444 @@ class MicroEmpresaAssistant {
     }
     
     exportPDF() {
-        const printWindow = window.open('', '_blank');
-        if (!printWindow) {
-            alert('Permita pop-ups para gerar o PDF.');
-            return;
-        }
+    // Criar um iframe oculto para o PDF
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.style.position = 'absolute';
+    iframe.style.left = '-9999px';
+    document.body.appendChild(iframe);
+    
+    const now = new Date();
+    const reportDate = now.toLocaleDateString('pt-BR');
+    const reportTime = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
 
-        const now = new Date();
-        const reportDate = now.toLocaleDateString('pt-BR');
-        const reportTime = now.toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-
-        let html = `
-        <!DOCTYPE html>
-        <html lang="pt-BR">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Relatório Fiscal - Microempresa ${reportDate}</title>
-            <style>
-                * {
-                    margin: 0;
-                    padding: 0;
-                    box-sizing: border-box;
-                }
-                
+    // Obter dados atuais da simulação
+    this.runFullSimulation();
+    
+    let html = `
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Relatório Fiscal - Microempresa ${reportDate}</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            
+            body {
+                font-family: Arial, sans-serif;
+                color: #333;
+                line-height: 1.4;
+                font-size: 12pt;
+                padding: 20px;
+                background: white;
+            }
+            
+            .pdf-container {
+                max-width: 210mm;
+                margin: 0 auto;
+            }
+            
+            .pdf-header {
+                text-align: center;
+                margin-bottom: 30px;
+                padding-bottom: 20px;
+                border-bottom: 3px solid #0066cc;
+            }
+            
+            .pdf-header h1 {
+                color: #0066cc;
+                font-size: 24px;
+                margin-bottom: 10px;
+                font-weight: bold;
+            }
+            
+            .pdf-subtitle {
+                color: #666;
+                font-size: 14px;
+                margin-bottom: 15px;
+            }
+            
+            .header-info {
+                display: flex;
+                justify-content: space-between;
+                font-size: 11px;
+                color: #555;
+                margin-top: 20px;
+                padding-top: 10px;
+                border-top: 1px solid #ddd;
+            }
+            
+            .pdf-section {
+                margin-bottom: 25px;
+                page-break-inside: avoid;
+            }
+            
+            .pdf-section h2 {
+                color: #0066cc;
+                font-size: 16px;
+                margin-bottom: 15px;
+                padding-bottom: 5px;
+                border-bottom: 2px solid #0066cc;
+                font-weight: bold;
+            }
+            
+            .info-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 10px;
+                margin: 15px 0;
+            }
+            
+            .info-item {
+                padding: 8px;
+                background: #f8f9fa;
+                border-radius: 4px;
+                border-left: 3px solid #0066cc;
+            }
+            
+            .info-item strong {
+                display: block;
+                color: #555;
+                font-size: 11px;
+                margin-bottom: 3px;
+            }
+            
+            .info-item span {
+                color: #222;
+                font-size: 12px;
+            }
+            
+            .financial-summary {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 15px;
+                margin: 20px 0;
+            }
+            
+            .summary-card {
+                text-align: center;
+                padding: 15px;
+                background: #f8f9fa;
+                border-radius: 8px;
+                border: 1px solid #ddd;
+            }
+            
+            .summary-card h3 {
+                font-size: 12px;
+                color: #555;
+                margin-bottom: 10px;
+            }
+            
+            .summary-value {
+                font-size: 20px;
+                font-weight: bold;
+                color: #0066cc;
+                margin: 10px 0;
+            }
+            
+            .summary-detail {
+                font-size: 10px;
+                color: #777;
+            }
+            
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin: 15px 0;
+                font-size: 11px;
+            }
+            
+            th {
+                background: #0066cc;
+                color: white;
+                padding: 8px;
+                text-align: left;
+                font-weight: bold;
+                border: 1px solid #0055aa;
+            }
+            
+            td {
+                padding: 8px;
+                border: 1px solid #ddd;
+            }
+            
+            tr:nth-child(even) {
+                background: #f9f9f9;
+            }
+            
+            .total-row {
+                background: #d4edda !important;
+                font-weight: bold;
+            }
+            
+            .observations {
+                background: #fff8e1;
+                padding: 20px;
+                border-radius: 8px;
+                border-left: 4px solid #ff9800;
+                margin: 25px 0;
+                font-size: 11px;
+            }
+            
+            .observations p {
+                margin: 8px 0;
+                line-height: 1.5;
+            }
+            
+            .pdf-footer {
+                text-align: center;
+                margin-top: 50px;
+                padding-top: 20px;
+                border-top: 2px solid #ddd;
+                color: #777;
+                font-size: 10px;
+            }
+            
+            .footer-note {
+                font-style: italic;
+                margin: 10px 0;
+            }
+            
+            .footer-company {
+                margin-top: 15px;
+                color: #555;
+                font-weight: 500;
+            }
+            
+            @media print {
                 body {
-                    font-family: Arial, sans-serif;
-                    color: #333;
-                    line-height: 1.4;
-                    font-size: 12pt;
-                    padding: 20px;
-                    background: white;
+                    padding: 15mm;
                 }
                 
                 .pdf-container {
-                    max-width: 210mm;
-                    margin: 0 auto;
+                    padding: 0;
                 }
                 
-                .pdf-header {
-                    text-align: center;
-                    margin-bottom: 30px;
-                    padding-bottom: 20px;
-                    border-bottom: 3px solid #0066cc;
+                .page-break {
+                    page-break-before: always;
                 }
                 
-                .pdf-header h1 {
-                    color: #0066cc;
-                    font-size: 24px;
-                    margin-bottom: 10px;
-                    font-weight: bold;
-                }
-                
-                .pdf-subtitle {
-                    color: #666;
-                    font-size: 14px;
-                    margin-bottom: 15px;
-                }
-                
-                .header-info {
-                    display: flex;
-                    justify-content: space-between;
-                    font-size: 11px;
-                    color: #555;
-                    margin-top: 20px;
-                    padding-top: 10px;
-                    border-top: 1px solid #ddd;
-                }
-                
-                .pdf-section {
-                    margin-bottom: 25px;
-                    page-break-inside: avoid;
-                }
-                
-                .pdf-section h2 {
-                    color: #0066cc;
-                    font-size: 16px;
-                    margin-bottom: 15px;
-                    padding-bottom: 5px;
-                    border-bottom: 2px solid #0066cc;
-                    font-weight: bold;
-                }
-                
-                .info-grid {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                    gap: 10px;
-                    margin: 15px 0;
-                }
-                
-                .info-item {
-                    padding: 8px;
-                    background: #f8f9fa;
-                    border-radius: 4px;
-                    border-left: 3px solid #0066cc;
-                }
-                
-                .info-item strong {
-                    display: block;
-                    color: #555;
-                    font-size: 11px;
-                    margin-bottom: 3px;
-                }
-                
-                .info-item span {
-                    color: #222;
-                    font-size: 12px;
-                }
-                
-                .financial-summary {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                    gap: 15px;
-                    margin: 20px 0;
+                .no-print {
+                    display: none;
                 }
                 
                 .summary-card {
-                    text-align: center;
-                    padding: 15px;
-                    background: #f8f9fa;
-                    border-radius: 8px;
-                    border: 1px solid #ddd;
+                    background: white !important;
+                    border: 1px solid #ddd !important;
                 }
                 
-                .summary-card h3 {
-                    font-size: 12px;
-                    color: #555;
-                    margin-bottom: 10px;
-                }
-                
-                .summary-value {
-                    font-size: 20px;
-                    font-weight: bold;
-                    color: #0066cc;
-                    margin: 10px 0;
-                }
-                
-                .summary-detail {
-                    font-size: 10px;
-                    color: #777;
-                }
-                
-                table {
-                    width: 100%;
-                    border-collapse: collapse;
-                    margin: 15px 0;
-                    font-size: 11px;
-                }
-                
-                th {
-                    background: #0066cc;
-                    color: white;
-                    padding: 8px;
-                    text-align: left;
-                    font-weight: bold;
-                    border: 1px solid #0055aa;
-                }
-                
-                td {
-                    padding: 8px;
-                    border: 1px solid #ddd;
-                }
-                
-                tr:nth-child(even) {
-                    background: #f9f9f9;
-                }
-                
-                .total-row {
-                    background: #d4edda !important;
-                    font-weight: bold;
+                .info-item {
+                    background: white !important;
+                    border: 1px solid #ddd !important;
                 }
                 
                 .observations {
-                    background: #fff8e1;
-                    padding: 20px;
-                    border-radius: 8px;
-                    border-left: 4px solid #ff9800;
-                    margin: 25px 0;
-                    font-size: 11px;
+                    background: white !important;
+                    border: 1px solid #ddd !important;
                 }
                 
-                .observations p {
-                    margin: 8px 0;
-                    line-height: 1.5;
+                @page {
+                    margin: 15mm;
                 }
-                
-                .pdf-footer {
-                    text-align: center;
-                    margin-top: 50px;
-                    padding-top: 20px;
-                    border-top: 2px solid #ddd;
-                    color: #777;
-                    font-size: 10px;
-                }
-                
-                .footer-note {
-                    font-style: italic;
-                    margin: 10px 0;
-                }
-                
-                .footer-company {
-                    margin-top: 15px;
-                    color: #555;
-                    font-weight: 500;
-                }
-                
-                @media print {
-                    body {
-                        padding: 15mm;
-                    }
-                    
-                    .page-break {
-                        page-break-before: always;
-                    }
-                    
-                    .no-print {
-                        display: none;
-                    }
-                }
-            </style>
-        </head>
-        <body>
-            <div class="pdf-container">
-                <header class="pdf-header">
-                    <h1>RELATÓRIO FISCAL COMPLETO</h1>
-                    <p class="pdf-subtitle">Microempresa - Simples Nacional 2026</p>
-                    <div class="header-info">
-                        <div>
-                            <strong>Data:</strong> ${reportDate}<br>
-                            <strong>Hora:</strong> ${reportTime}
-                        </div>
-                        <div>
-                            <strong>Página:</strong> 1<br>
-                            <strong>Versão:</strong> 2.0
-                        </div>
+            }
+        </style>
+    </head>
+    <body>
+        <div class="pdf-container">
+            <header class="pdf-header">
+                <h1>RELATÓRIO FISCAL COMPLETO</h1>
+                <p class="pdf-subtitle">Microempresa - Simples Nacional 2026</p>
+                <div class="header-info">
+                    <div>
+                        <strong>Data:</strong> ${reportDate}<br>
+                        <strong>Hora:</strong> ${reportTime}
                     </div>
-                </header>
-                
-                <div class="pdf-section">
-                    <h2>📋 Dados da Empresa</h2>
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <strong>Razão Social:</strong>
-                            <span>${this.state.identificacao.razaoSocial || 'Não informado'}</span>
-                        </div>
-                        <div class="info-item">
-                            <strong>CNPJ:</strong>
-                            <span>${this.state.identificacao.cnpj || 'Não informado'}</span>
-                        </div>
-                        <div class="info-item">
-                            <strong>Data Abertura:</strong>
-                            <span>${this.formatDate(this.state.identificacao.dataAbertura) || 'Não informado'}</span>
-                        </div>
-                        <div class="info-item">
-                            <strong>CNAE:</strong>
-                            <span>${this.state.empresa.cnae || 'Não informado'}</span>
-                        </div>
-                        <div class="info-item">
-                            <strong>Regime Tributário:</strong>
-                            <span>${this.state.empresa.regimeTributario === 'simples' ? 'Simples Nacional' : this.state.empresa.regimeTributario}</span>
-                        </div>
-                        <div class="info-item">
-                            <strong>Porte:</strong>
-                            <span>${this.state.empresa.porteEmpresa === 'micro' ? 'Microempresa (ME)' : 'Empresa de Pequeno Porte (EPP)'}</span>
-                        </div>
+                    <div>
+                        <strong>Página:</strong> 1<br>
+                        <strong>Versão:</strong> 2.0
                     </div>
                 </div>
-                
-                <div class="pdf-section">
-                    <h2>💰 Resumo Financeiro</h2>
-                    <div class="financial-summary">
-                        <div class="summary-card">
-                            <h3>Faturamento Anual</h3>
-                            <p class="summary-value">${this.formatCurrency(this.state.simulacao.faturamentoBruto)}</p>
-                            <p class="summary-detail">Total de receitas</p>
-                        </div>
-                        <div class="summary-card">
-                            <h3>Despesas Anuais</h3>
-                            <p class="summary-value">${this.formatCurrency(this.state.simulacao.despesasTotais)}</p>
-                            <p class="summary-detail">Custos operacionais</p>
-                        </div>
-                        <div class="summary-card">
-                            <h3>Lucro Operacional</h3>
-                            <p class="summary-value">${this.formatCurrency(this.state.simulacao.lucroOperacional)}</p>
-                            <p class="summary-detail">Faturamento - Despesas</p>
-                        </div>
-                        <div class="summary-card">
-                            <h3>DAS Anual</h3>
-                            <p class="summary-value">${this.formatCurrency(this.state.simulacao.dasAnual)}</p>
-                            <p class="summary-detail">Simples Nacional</p>
-                        </div>
+            </header>
+            
+            <div class="pdf-section">
+                <h2>📋 Dados da Empresa</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Razão Social:</strong>
+                        <span>${this.state.identificacao.razaoSocial || 'Não informado'}</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>CNPJ:</strong>
+                        <span>${this.state.identificacao.cnpj || 'Não informado'}</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Data Abertura:</strong>
+                        <span>${this.formatDate(this.state.identificacao.dataAbertura) || 'Não informado'}</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>CNAE:</strong>
+                        <span>${this.state.empresa.cnae || 'Não informado'}</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Regime Tributário:</strong>
+                        <span>${this.state.empresa.regimeTributario === 'simples' ? 'Simples Nacional' : this.state.empresa.regimeTributario}</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Porte:</strong>
+                        <span>${this.state.empresa.porteEmpresa === 'micro' ? 'Microempresa (ME)' : 'Empresa de Pequeno Porte (EPP)'}</span>
                     </div>
                 </div>
-                
-                <div class="pdf-section">
-                    <h2>📊 Simulação de Impostos</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Imposto/Tributo</th>
-                                <th>Base de Cálculo</th>
-                                <th>Alíquota</th>
-                                <th>Valor Anual</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>DAS - Simples Nacional</td>
-                                <td>${this.formatCurrency(this.state.simulacao.faturamentoBruto)}</td>
-                                <td>${this.state.simulacao.aliquotasEfetivas.simples.toFixed(2)}%</td>
-                                <td>${this.formatCurrency(this.state.simulacao.dasAnual)}</td>
-                            </tr>
-                            <tr>
-                                <td>INSS - Pró-labore</td>
-                                <td>${this.formatCurrency(this.state.irpfSocios.prolaboreAnual)}</td>
-                                <td>${this.state.simulacao.aliquotasEfetivas.inss.toFixed(2)}%</td>
-                                <td>${this.formatCurrency(this.state.simulacao.inssProlabore)}</td>
-                            </tr>
-                            <tr>
-                                <td>IRPF - Pró-labore</td>
-                                <td>${this.formatCurrency(this.state.irpfSocios.baseCalculoIrpf)}</td>
-                                <td>${this.state.simulacao.aliquotasEfetivas.irpf.toFixed(2)}%</td>
-                                <td>${this.formatCurrency(this.state.simulacao.irpfProlabore)}</td>
-                            </tr>
-                            <tr class="total-row">
-                                <td><strong>Total de Tributos</strong></td>
-                                <td></td>
-                                <td>${this.state.simulacao.aliquotasEfetivas.total.toFixed(2)}%</td>
-                                <td><strong>${this.formatCurrency(this.state.simulacao.cargaTributariaTotal)}</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <div class="pdf-section">
-                    <h2>⚖️ Observações Fiscais Importantes</h2>
-                    <div class="observations">
-                        <p><strong>Este é um relatório de simulação fiscal.</strong> Não substitui a declaração oficial nem o trabalho de um contador.</p>
-                        <p><strong>Microempresa no Simples Nacional</strong> tem limite de faturamento de R$ ${this.formatNumber(this.CONSTANTS.LIMITE_FATURAMENTO_ME)}/ano.</p>
-                        <p><strong>Pró-labore deve ser estabelecido</strong> de acordo com as funções exercidas e conforme mercado.</p>
-                        <p><strong>Distribuições de lucros</strong> são isentas de IRPF para ME no Simples Nacional.</p>
-                        <p><strong>Consulte sempre um contador</strong> para validação final e orientações específicas.</p>
-                    </div>
-                </div>
-                
-                <footer class="pdf-footer">
-                    <p>--- FIM DO RELATÓRIO ---</p>
-                    <p class="footer-note">Gerado pelo Sistema Fiscal para Microempresas - Simulador Completo 2026</p>
-                    <p class="footer-company">S&Q TECNOLOGIA DA INFORMACAO LTDA | CNPJ: 64.684.955/0001-98</p>
-                    <p>Gerado em: ${reportDate} às ${reportTime}</p>
-                </footer>
             </div>
-        </body>
-        </html>
-        `;
+            
+            <div class="pdf-section">
+                <h2>💰 Resumo Financeiro</h2>
+                <div class="financial-summary">
+                    <div class="summary-card">
+                        <h3>Faturamento Anual</h3>
+                        <p class="summary-value">${this.formatCurrency(this.state.simulacao.faturamentoBruto)}</p>
+                        <p class="summary-detail">Total de receitas</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Despesas Anuais</h3>
+                        <p class="summary-value">${this.formatCurrency(this.state.simulacao.despesasTotais)}</p>
+                        <p class="summary-detail">Custos operacionais</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>Lucro Operacional</h3>
+                        <p class="summary-value">${this.formatCurrency(this.state.simulacao.lucroOperacional)}</p>
+                        <p class="summary-detail">Faturamento - Despesas</p>
+                    </div>
+                    <div class="summary-card">
+                        <h3>DAS Anual</h3>
+                        <p class="summary-value">${this.formatCurrency(this.state.simulacao.dasAnual)}</p>
+                        <p class="summary-detail">Simples Nacional</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pdf-section">
+                <h2>📊 Simulação de Impostos</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Imposto/Tributo</th>
+                            <th>Base de Cálculo</th>
+                            <th>Alíquota</th>
+                            <th>Valor Anual</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>DAS - Simples Nacional</td>
+                            <td>${this.formatCurrency(this.state.simulacao.faturamentoBruto)}</td>
+                            <td>${this.state.simulacao.aliquotasEfetivas.simples.toFixed(2)}%</td>
+                            <td>${this.formatCurrency(this.state.simulacao.dasAnual)}</td>
+                        </tr>
+                        <tr>
+                            <td>INSS - Pró-labore</td>
+                            <td>${this.formatCurrency(this.state.irpfSocios.prolaboreAnual)}</td>
+                            <td>${this.state.simulacao.aliquotasEfetivas.inss.toFixed(2)}%</td>
+                            <td>${this.formatCurrency(this.state.simulacao.inssProlabore)}</td>
+                        </tr>
+                        <tr>
+                            <td>IRPF - Pró-labore</td>
+                            <td>${this.formatCurrency(this.state.irpfSocios.baseCalculoIrpf)}</td>
+                            <td>${this.state.simulacao.aliquotasEfetivas.irpf.toFixed(2)}%</td>
+                            <td>${this.formatCurrency(this.state.simulacao.irpfProlabore)}</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td><strong>Total de Tributos</strong></td>
+                            <td></td>
+                            <td>${this.state.simulacao.aliquotasEfetivas.total.toFixed(2)}%</td>
+                            <td><strong>${this.formatCurrency(this.state.simulacao.cargaTributariaTotal)}</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="pdf-section">
+                <h2>⚖️ Observações Fiscais Importantes</h2>
+                <div class="observations">
+                    <p><strong>Este é um relatório de simulação fiscal.</strong> Não substitui a declaração oficial nem o trabalho de um contador.</p>
+                    <p><strong>Microempresa no Simples Nacional</strong> tem limite de faturamento de R$ ${this.formatNumber(this.CONSTANTS.LIMITE_FATURAMENTO_ME)}/ano.</p>
+                    <p><strong>Pró-labore deve ser estabelecido</strong> de acordo com as funções exercidas e conforme mercado.</p>
+                    <p><strong>Distribuições de lucros</strong> são isentas de IRPF para ME no Simples Nacional.</p>
+                    <p><strong>Consulte sempre um contador</strong> para validação final e orientações específicas.</p>
+                </div>
+            </div>
+            
+            <footer class="pdf-footer">
+                <p>--- FIM DO RELATÓRIO ---</p>
+                <p class="footer-note">Gerado pelo Sistema Fiscal para Microempresas - Simulador Completo 2026</p>
+                <p class="footer-company">S&Q TECNOLOGIA DA INFORMACAO LTDA | CNPJ: 64.684.955/0001-98</p>
+                <p>Gerado em: ${reportDate} às ${reportTime}</p>
+            </footer>
+        </div>
+        
+        <script>
+            // Aguardar o carregamento e imprimir
+            window.onload = function() {
+                setTimeout(function() {
+                    window.print();
+                    // Fechar a janela após impressão (opcional)
+                    setTimeout(function() {
+                        window.close();
+                    }, 500);
+                }, 500);
+            };
+        </script>
+    </body>
+    </html>
+    `;
 
-        printWindow.document.write(html);
-        printWindow.document.close();
-
-        setTimeout(() => {
-            printWindow.print();
-            printWindow.close();
-        }, 500);
-    }
+    // Escrever no iframe
+    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+    iframeDoc.open();
+    iframeDoc.write(html);
+    iframeDoc.close();
     
+    // Agora abrir em nova janela para impressão
+    setTimeout(() => {
+        const printWindow = window.open('', '_blank');
+        if (printWindow) {
+            printWindow.document.open();
+            printWindow.document.write(html);
+            printWindow.document.close();
+            
+            // Aguardar carregamento e imprimir
+            printWindow.onload = function() {
+                printWindow.print();
+                
+                // Opcional: fechar após impressão
+                setTimeout(() => {
+                    printWindow.close();
+                }, 1000);
+            };
+        } else {
+            // Fallback: usar iframe para impressão
+            iframe.contentWindow.focus();
+            iframe.contentWindow.print();
+            
+            // Remover iframe após impressão
+            setTimeout(() => {
+                document.body.removeChild(iframe);
+            }, 2000);
+        }
+    }, 500);
+}
+    printReport() {
+    // Primeiro, atualizar os dados do relatório
+    this.generateReport();
+    
+    // Usar a função de impressão nativa do navegador
+    window.print();
+}
+
     exportExcel() {
         // Criar dados para Excel
         const data = {
