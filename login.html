@@ -779,12 +779,20 @@
         }
         
         // ===== REDIRECIONAMENTO =====
-        function redirectToSystem() {
-            // Adicionar atraso para efeito visual
-            setTimeout(() => {
-                window.location.href = 'index.html';
-            }, 500);
+function redirectToSystem() {
+    // Adicionar atraso para efeito visual
+    setTimeout(() => {
+        const isNetlify = window.location.hostname.includes('netlify');
+        
+        if (isNetlify) {
+            // No Netlify, redirecionar para a página principal
+            window.location.href = '/index.html';
+        } else {
+            // Localmente
+            window.location.href = 'index.html';
         }
+    }, 500);
+}
         
         // ===== VALIDAÇÃO DE LOGIN =====
         function validateLogin(password) {
