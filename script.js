@@ -3,6 +3,13 @@
 // Autor: Especialista em Contabilidade para Microempresas
 
 class MicroEmpresaAssistant {
+
+    constructor() {
+        // Verificar se está autenticado
+        if (!this.checkAuthentication()) {
+            window.location.href = 'login.html';
+            return;
+        }
     constructor() {
         // Estado inicial com todas as variáveis necessárias
         this.state = {
