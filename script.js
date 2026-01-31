@@ -7,11 +7,7 @@ class MicroEmpresaAssistant {
         
         
     constructor() {
-    // Verificar se está autenticado
-        if (!this.checkAuthentication()) {
-            window.location.href = 'login.html';
-            return;
-        }
+    
         // Estado inicial com todas as variáveis necessárias
         this.state = {
             // Identificação da empresa
