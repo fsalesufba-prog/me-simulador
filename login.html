@@ -185,61 +185,65 @@
         </div>
     </div>
 
-    <script>
-        // Senha padrão (pode ser alterada pelo usuário)
-        const DEFAULT_PASSWORD = 'admin123';
-        const STORAGE_KEY = 'microfiscal_password';
-        const IS_LOGGED_IN_KEY = 'microfiscal_logged_in';
-        
-        // Verificar se já está logado
-        const isLoggedIn = localStorage.getItem(IS_LOGGED_IN_KEY) === 'true';
-        if (isLoggedIn) {
-            window.location.href = 'index.html';
+    // Substitua o script do login.html por esta versão mais segura:
+<script>
+    // Função simples de hash (SHA-256 seria melhor em produção)
+    function simpleHash(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            const char = str.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash;
         }
+        return hash.toString(36);
+    }
+    
+    const DEFAULT_PASSWORD_HASH = simpleHash('admin123');
+    const PASSWORD_HASH_KEY = 'microfiscal_password_hash';
+    const IS_LOGGED_IN_KEY = 'microfiscal_logged_in';
+    
+    // Verificar se já está logado
+    const isLoggedIn = localStorage.getItem(IS_LOGGED_IN_KEY) === 'true';
+    if (isLoggedIn) {
+        window.location.href = 'index.html';
+    }
+    
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+        e.preventDefault();
         
-        document.getElementById('login-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const passwordInput = document.getElementById('password');
-            const enteredPassword = passwordInput.value;
-            const errorMessage = document.getElementById('error-message');
-            
-            // Obter senha salva ou usar a padrão
-            const savedPassword = localStorage.getItem(STORAGE_KEY) || DEFAULT_PASSWORD;
-            
-            if (enteredPassword === savedPassword) {
-                // Login bem-sucedido
-                localStorage.setItem(IS_LOGGED_IN_KEY, 'true');
-                localStorage.setItem('microfiscal_last_login', new Date().toISOString());
-                
-                // Redirecionar para o sistema
-                window.location.href = 'index.html';
-            } else {
-                // Login falhou
-                errorMessage.style.display = 'block';
-                passwordInput.value = '';
-                passwordInput.focus();
-                
-                // Efeito visual de erro
-                passwordInput.style.borderColor = '#ff3366';
-                passwordInput.style.boxShadow = '0 0 10px rgba(255, 51, 102, 0.3)';
-                
-                setTimeout(() => {
-                    passwordInput.style.borderColor = 'rgba(0, 212, 255, 0.3)';
-                    passwordInput.style.boxShadow = 'none';
-                }, 1000);
-            }
-        });
+        const passwordInput = document.getElementById('password');
+        const enteredPassword = passwordInput.value;
+        const errorMessage = document.getElementById('error-message');
         
-        // Tecla Enter para submeter
-        document.getElementById('password').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                document.getElementById('login-form').dispatchEvent(new Event('submit'));
-            }
-        });
+        // Obter hash salvo ou usar o padrão
+        const savedHash = localStorage.getItem(PASSWORD_HASH_KEY) || DEFAULT_PASSWORD_HASH;
+        const enteredHash = simpleHash(enteredPassword);
         
-        // Foco automático no campo de senha
-        document.getElementById('password').focus();
-    </script>
+        if (enteredHash === savedHash) {
+            // Login bem-sucedido
+            localStorage.setItem(IS_LOGGED_IN_KEY, 'true');
+            localStorage.setItem('microfiscal_last_login', new Date().toISOString());
+            
+            // Redirecionar para o sistema
+            window.location.href = 'index.html';
+        } else {
+            // Login falhou
+            errorMessage.style.display = 'block';
+            passwordInput.value = '';
+            passwordInput.focus();
+            
+            // Efeito visual de erro
+            passwordInput.style.borderColor = '#ff3366';
+            passwordInput.style.boxShadow = '0 0 10px rgba(255, 51, 102, 0.3)';
+            
+            setTimeout(() => {
+                passwordInput.style.borderColor = 'rgba(0, 212, 255, 0.3)';
+                passwordInput.style.boxShadow = 'none';
+            }, 1000);
+        }
+    });
+    
+    // ... resto do código
+</script>
 </body>
 </html>
