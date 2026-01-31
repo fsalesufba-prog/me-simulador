@@ -4,13 +4,14 @@
 
 class MicroEmpresaAssistant {
 
+        
+        
     constructor() {
-        // Verificar se está autenticado
+    // Verificar se está autenticado
         if (!this.checkAuthentication()) {
             window.location.href = 'login.html';
             return;
         }
-    constructor() {
         // Estado inicial com todas as variáveis necessárias
         this.state = {
             // Identificação da empresa
