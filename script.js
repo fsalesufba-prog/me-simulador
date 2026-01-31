@@ -269,26 +269,27 @@ class MicroEmpresaAssistant {
         this.init();
     }
 
-        checkAuthentication() {
-        const IS_LOGGED_IN_KEY = 'microfiscal_logged_in';
-        const isLoggedIn = localStorage.getItem(IS_LOGGED_IN_KEY) === 'true';
+   checkAuthentication() {
+    const IS_LOGGED_IN_KEY = 'microfiscal_logged_in';
+    const isLoggedIn = localStorage.getItem(IS_LOGGED_IN_KEY) === 'true';
+    
+    // Se não estiver logado, redirecionar para login.html
+    if (!isLoggedIn) {
+        // Verificar se estamos no Netlify ou localmente
+        const isNetlify = window.location.hostname.includes('netlify');
         
-        // Verificar se o login foi feito há menos de 24 horas
-        const lastLogin = localStorage.getItem('microfiscal_last_login');
-        if (lastLogin) {
-            const loginTime = new Date(lastLogin);
-            const now = new Date();
-            const hoursSinceLogin = (now - loginTime) / (1000 * 60 * 60);
-            
-            if (hoursSinceLogin > 24) {
-                // Logout automático após 24 horas
-                localStorage.removeItem(IS_LOGGED_IN_KEY);
-                return false;
-            }
+        if (isNetlify) {
+            // No Netlify, redirecionar para login.html
+            window.location.href = '/login.html';
+        } else {
+            // Localmente
+            window.location.href = 'login.html';
         }
-        
-        return isLoggedIn;
+        return false;
     }
+    
+    return true;
+}
     
     init() {
         this.loadState();
