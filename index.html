@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Fiscal ME | IRPJ/IRPF Completo 2026</title>
+    <link rel="stylesheet" href="style-me.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="cyber-container">
+        <!-- Header Futurista -->
+        <header class="cyber-header">
+            <div class="cyber-logo">
+                <div class="hologram-effect"></div>
+                <div class="logo-content">
+                    <h1 class="neon-text">
+                        <span class="neon-primary">MICRO</span>
+                        <span class="neon-secondary">FISCAL</span>
+                    </h1>
+                    <p class="cyber-subtitle">Simulador Fiscal para Microempresas</p>
+                </div>
+                <div class="particles-container"></div>
+            </div>
+            
+            <div class="cyber-year">
+                <div class="year-badge">
+                    <span class="year-glow">2026</span>
+                    <div class="year-pulse"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navegação Cibernética -->
+        <nav class="cyber-nav">
+            <div class="cyber-nav-container">
+                <ul class="cyber-nav-list">
+                    <li class="cyber-nav-item">
+                        <button class="cyber-nav-btn active" data-section="home">
+                            <i class="fas fa-home"></i>
+                            <span>Início</span>
+                            <div class="nav-glow"></div>
+                        </button>
+                    </li>
+                    <li class="cyber-nav-item">
+                        <button class="cyber-nav-btn" data-section="identification">
+                            <i class="fas fa-id-card"></i>
+                            <span>Identificação</span>
+                        </button>
+                    </li>
+                    <li class="cyber-nav-item">
+                        <button class="cyber-nav-btn" data-section="address">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Endereço</span>
+                        </button>
+                    </li>
+                    <li class="cyber-nav-item">
+                        <button class="cyber-nav-btn" data-section="company-info">
+                            <i class="fas fa-building"></i>
+                            <span>Empresa</span>
+                        </button>
+                    </li>
+                    <li class="cyber-nav-item">
+                        <button class="cyber-nav-btn" data-section="faturamento">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Faturamento</span>
+                        </button>
+                    </li>
+                    <li class="cyber-nav-item">
+                        <button class="cyber-nav-btn" data-section="despesas">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                            <span>Despesas</span>
+                        </button>
+                    </li>
+                    <li class="cyber-nav-item">
+                        <button class="cyber-nav-btn" data-section="simples">
+                            <i class="fas fa-calculator"></i>
+                            <span>Simples</span>
+                        </button>
+                    </li>
+                    <li class="cyber-nav-item">
+                        <button class="cyber-nav-btn" data-section="irpj">
+                            <i class="fas fa-landmark"></i>
+                            <span>IRPJ/CSLL</span>
+                        </button>
+                    </li>
+                    <li class="cyber-nav-item">
+                        <button class="cyber-nav-btn" data-section="irpf">
+                            <i class="fas fa-user-tie"></i>
+                            <span>IRPF</span>
+                        </button>
+                    </li>
+                    <li class="cyber-nav-item">
+                        <button class="cyber-nav-btn" data-section="simulation">
+                            <i class="fas fa-robot"></i>
+                            <span>Simulação</span>
+                        </button>
+                    </li>
+                    <li class="cyber-nav-item">
+                        <button class="cyber-nav-btn" data-section="validation">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Validação</span>
+                        </button>
+                    </li>
+                    <li class="cyber-nav-item">
+                        <button class="cyber-nav-btn" data-section="reports">
+                            <i class="fas fa-file-contract"></i>
+                            <span>Relatórios</span>
+                        </button>
+                    </li>
+                </ul>
+                <div class="cyber-nav-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Conteúdo Principal -->
+        <main class="cyber-main">
+            <!-- Seção Início -->
+            <section class="cyber-section active" id="home-section">
+                <div class="section-header">
+                    <h2 class="hologram-title">
+                        <span class="title-glow">Sistema Fiscal</span>
+                        <span class="title-sub">Microempresas 2026</span>
+                    </h2>
+                    <p class="cyber-description">Simulação completa de impostos para Microempresas no Simples Nacional</p>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="cyber-card">
+                        <div class="card-header">
+                            <i class="fas fa-bolt card-icon"></i>
+                            <h3>Simples Nacional</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Cálculo automático do DAS com alíquotas progressivas</p>
+                            <div class="card-stats">
+                                <span class="stat-label">Faturamento Limite</span>
+                                <span class="stat-value neon-text">R$ 360.000/ano</span>
+                            </div>
+                        </div>
+                        <button class="cyber-btn primary" data-section="simples">
+                            <i class="fas fa-play"></i>
+                            Simular Agora
+                        </button>
+                    </div>
+
+                    <div class="cyber-card">
+                        <div class="card-header">
+                            <i class="fas fa-chart-pie card-icon"></i>
+                            <h3>Progresso</h3>
+                        </div>
+                        <div class="card-content">
+                            <p><span id="progress-percentage" class="progress-value">0%</span> completo</p>
+                            <div class="cyber-progress">
+                                <div class="progress-fill" id="progress-fill"></div>
+                                <div class="progress-glow"></div>
+                            </div>
+                            <div class="progress-details">
+                                <span class="detail-item">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span id="completed-items">0</span> concluídos
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cyber-card">
+                        <div class="card-header">
+                            <i class="fas fa-database card-icon"></i>
+                            <h3>Dados Locais</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Todos os dados armazenados localmente</p>
+                            <div class="data-security">
+                                <i class="fas fa-lock"></i>
+                                <span>100% Seguro e Offline</span>
+                            </div>
+                        </div>
+                        <button class="cyber-btn secondary" id="backup-btn">
+                            <i class="fas fa-download"></i>
+                            Backup
+                        </button>
+                    </div>
+
+                    <div class="cyber-card">
+                        <div class="card-header">
+                            <i class="fas fa-gem card-icon"></i>
+                            <h3>Microempresa</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>Regime especial para faturamento até R$ 360.000/ano</p>
+                            <div class="feature-list">
+                                <span><i class="fas fa-check"></i> Isenção IRPJ/CSLL</span>
+                                <span><i class="fas fa-check"></i> Alíquotas reduzidas</span>
+                                <span><i class="fas fa-check"></i> Processos simplificados</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quick-start">
+                    <h3 class="cyber-title">
+                        <i class="fas fa-rocket"></i>
+                        Início Rápido
+                    </h3>
+                    <div class="steps-grid">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <h4>Dados da Empresa</h4>
+                            <p>Informe CNPJ, atividade e endereço</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <h4>Faturamento</h4>
+                            <p>Adicione receitas mensais/anuais</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <h4>Despesas</h4>
+                            <p>Registre custos e investimentos</p>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">4</div>
+                            <h4>Simulação</h4>
+                            <p>Calcule impostos automaticamente</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cyber-alert info">
+                    <div class="alert-icon">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <div class="alert-content">
+                        <h4>⚠️ Diferenças ME vs MEI</h4>
+                        <p>Microempresas (ME) tem <strong>faturamento limite maior</strong> (R$ 360.000/ano) e <strong>alíquotas progressivas</strong> no Simples Nacional. IRPJ e CSLL são calculados dentro do DAS.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção Identificação -->
+            <section class="cyber-section" id="identification-section">
+                <div class="section-header">
+                    <h2 class="hologram-title">
+                        <span class="title-glow">Identificação</span>
+                        <span class="title-sub">Dados Cadastrais</span>
+                    </h2>
+                    <p class="cyber-description">Informações básicas da empresa e sócios</p>
+                </div>
+
+                <div class="cyber-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="cyber-label" for="razao-social">
+                                <i class="fas fa-file-signature"></i>
+                                Razão Social *
+                            </label>
+                            <input type="text" id="razao-social" class="cyber-input" placeholder="Nome completo da empresa">
+                            <div class="input-glow"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="cnpj">
+                                <i class="fas fa-fingerprint"></i>
+                                CNPJ *
+                            </label>
+                            <input type="text" id="cnpj" class="cyber-input" placeholder="00.000.000/0000-00" maxlength="18">
+                            <div class="validation-container">
+                                <span id="cnpj-validation" class="validation-message"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="nome-fantasia">
+                                <i class="fas fa-signature"></i>
+                                Nome Fantasia
+                            </label>
+                            <input type="text" id="nome-fantasia" class="cyber-input" placeholder="Nome comercial">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="data-abertura">
+                                <i class="fas fa-calendar-alt"></i>
+                                Data de Abertura *
+                            </label>
+                            <input type="date" id="data-abertura" class="cyber-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="telefone">
+                                <i class="fas fa-phone"></i>
+                                Telefone
+                            </label>
+                            <input type="text" id="telefone" class="cyber-input" placeholder="(11) 99999-9999">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="email">
+                                <i class="fas fa-envelope"></i>
+                                E-mail
+                            </label>
+                            <input type="email" id="email" class="cyber-input" placeholder="empresa@email.com">
+                        </div>
+                    </div>
+
+                    <div class="form-divider">
+                        <span class="divider-text">
+                            <i class="fas fa-users"></i>
+                            Sócios/Administradores
+                        </span>
+                    </div>
+
+                    <div class="dynamic-list" id="socios-list">
+                        <div class="list-header">
+                            <h4><i class="fas fa-user-plus"></i> Adicionar Sócio</h4>
+                            <button class="cyber-btn small" id="add-socio">
+                                <i class="fas fa-plus"></i> Novo Sócio
+                            </button>
+                        </div>
+
+                        <div class="socio-form" id="socio-form-template" style="display: none;">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Nome Completo *</label>
+                                    <input type="text" class="cyber-input socio-nome" placeholder="Nome do sócio">
+                                </div>
+                                <div class="form-group">
+                                    <label>CPF *</label>
+                                    <input type="text" class="cyber-input socio-cpf" placeholder="000.000.000-00">
+                                </div>
+                                <div class="form-group">
+                                    <label>Participação (%) *</label>
+                                    <input type="number" class="cyber-input socio-participacao" min="0" max="100" step="0.01">
+                                </div>
+                                <div class="form-group">
+                                    <label>Administrador?</label>
+                                    <select class="cyber-input socio-admin">
+                                        <option value="sim">Sim</option>
+                                        <option value="nao">Não</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="cyber-btn danger small remove-socio">
+                                    <i class="fas fa-trash"></i> Remover
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="socios-container">
+                            <div class="empty-state">
+                                <i class="fas fa-user-friends"></i>
+                                <p>Nenhum sócio cadastrado</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button class="cyber-btn secondary" data-section="home">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                    <button class="cyber-btn primary" data-section="address">
+                        Próximo <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Seção Endereço -->
+            <section class="cyber-section" id="address-section">
+                <div class="section-header">
+                    <h2 class="hologram-title">
+                        <span class="title-glow">Endereço</span>
+                        <span class="title-sub">Localização da Empresa</span>
+                    </h2>
+                    <p class="cyber-description">Endereço fiscal e comercial</p>
+                </div>
+
+                <div class="cyber-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="cyber-label" for="cep">
+                                <i class="fas fa-map-pin"></i>
+                                CEP *
+                            </label>
+                            <input type="text" id="cep" class="cyber-input" placeholder="00000-000" maxlength="9">
+                            <button type="button" class="cep-button" id="buscar-cep">
+                                <i class="fas fa-search"></i> Buscar
+                            </button>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="logradouro">Logradouro *</label>
+                            <input type="text" id="logradouro" class="cyber-input" placeholder="Rua, Avenida, etc.">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="numero">Número *</label>
+                            <input type="text" id="numero" class="cyber-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="complemento">Complemento</label>
+                            <input type="text" id="complemento" class="cyber-input" placeholder="Sala, Andar, etc.">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="bairro">Bairro *</label>
+                            <input type="text" id="bairro" class="cyber-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="cidade">Cidade *</label>
+                            <input type="text" id="cidade" class="cyber-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="uf">UF *</label>
+                            <select id="uf" class="cyber-input">
+                                <option value="">Selecione</option>
+                                <option value="AC">AC</option>
+                                <option value="AL">AL</option>
+                                <option value="AP">AP</option>
+                                <option value="AM">AM</option>
+                                <option value="BA">BA</option>
+                                <option value="CE">CE</option>
+                                <option value="DF">DF</option>
+                                <option value="ES">ES</option>
+                                <option value="GO">GO</option>
+                                <option value="MA">MA</option>
+                                <option value="MT">MT</option>
+                                <option value="MS">MS</option>
+                                <option value="MG">MG</option>
+                                <option value="PA">PA</option>
+                                <option value="PB">PB</option>
+                                <option value="PR">PR</option>
+                                <option value="PE">PE</option>
+                                <option value="PI">PI</option>
+                                <option value="RJ">RJ</option>
+                                <option value="RN">RN</option>
+                                <option value="RS">RS</option>
+                                <option value="RO">RO</option>
+                                <option value="RR">RR</option>
+                                <option value="SC">SC</option>
+                                <option value="SP">SP</option>
+                                <option value="SE">SE</option>
+                                <option value="TO">TO</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="address-options">
+                        <div class="cyber-checkbox">
+                            <input type="checkbox" id="mesmo-endereco-comercial" checked>
+                            <label for="mesmo-endereco-comercial">
+                                <span class="check-icon"></span>
+                                Mesmo endereço comercial e fiscal
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button class="cyber-btn secondary" data-section="identification">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                    <button class="cyber-btn primary" data-section="company-info">
+                        Próximo <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Seção Informações da Empresa -->
+            <section class="cyber-section" id="company-info-section">
+                <div class="section-header">
+                    <h2 class="hologram-title">
+                        <span class="title-glow">Empresa</span>
+                        <span class="title-sub">Atividade e Regime</span>
+                    </h2>
+                    <p class="cyber-description">Dados da atividade econômica e enquadramento</p>
+                </div>
+
+                <div class="cyber-form">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="cyber-label" for="cnae">
+                                <i class="fas fa-industry"></i>
+                                CNAE Principal *
+                            </label>
+                            <input type="text" id="cnae" class="cyber-input" placeholder="Ex: 62.01-5-01">
+                            <small class="input-hint">Código da Classificação Nacional de Atividades Econômicas</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="atividade">
+                                <i class="fas fa-briefcase"></i>
+                                Descrição da Atividade *
+                            </label>
+                            <textarea id="atividade" class="cyber-input" rows="3" placeholder="Descreva a atividade principal da empresa"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="regime-tributario">
+                                <i class="fas fa-balance-scale"></i>
+                                Regime Tributário *
+                            </label>
+                            <select id="regime-tributario" class="cyber-input">
+                                <option value="">Selecione</option>
+                                <option value="simples">Simples Nacional</option>
+                                <option value="lucro-presumido">Lucro Presumido</option>
+                                <option value="lucro-real">Lucro Real</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="anexo-simples">
+                                <i class="fas fa-file-contract"></i>
+                                Anexo Simples Nacional
+                            </label>
+                            <select id="anexo-simples" class="cyber-input">
+                                <option value="">Selecione</option>
+                                <option value="I">Anexo I - Comércio</option>
+                                <option value="II">Anexo II - Indústria</option>
+                                <option value="III">Anexo III - Serviços</option>
+                                <option value="IV">Anexo IV - Serviços</option>
+                                <option value="V">Anexo V - Serviços</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="porte-empresa">
+                                <i class="fas fa-chart-bar"></i>
+                                Porte da Empresa
+                            </label>
+                            <select id="porte-empresa" class="cyber-input">
+                                <option value="micro">Microempresa (ME)</option>
+                                <option value="epp">Empresa de Pequeno Porte (EPP)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="capital-social">
+                                <i class="fas fa-coins"></i>
+                                Capital Social (R$)
+                            </label>
+                            <input type="number" id="capital-social" class="cyber-input" step="0.01" min="0">
+                        </div>
+                    </div>
+
+                    <div class="cyber-alert info">
+                        <div class="alert-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4>📊 Microempresa no Simples Nacional</h4>
+                            <p>Como ME no Simples Nacional, você se beneficia de <strong>alíquotas progressivas</strong>, <strong>isenção de IRPJ/CSLL sobre o lucro</strong> (calculados no DAS) e <strong>processos simplificados</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button class="cyber-btn secondary" data-section="address">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                    <button class="cyber-btn primary" data-section="faturamento">
+                        Próximo <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Seção Faturamento -->
+            <section class="cyber-section" id="faturamento-section">
+                <div class="section-header">
+                    <h2 class="hologram-title">
+                        <span class="title-glow">Faturamento</span>
+                        <span class="title-sub">Receitas da Empresa</span>
+                    </h2>
+                    <p class="cyber-description">Registro de receitas mensais e anuais</p>
+                </div>
+
+                <div class="revenue-dashboard">
+                    <div class="revenue-cards">
+                        <div class="revenue-card">
+                            <div class="card-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Faturamento Anual</h4>
+                                <p class="revenue-value" id="total-faturamento">R$ 0,00</p>
+                                <span class="revenue-label" id="limite-faturamento">Limite: R$ 360.000,00</span>
+                            </div>
+                            <div class="revenue-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="progress-faturamento"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="revenue-card">
+                            <div class="card-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Média Mensal</h4>
+                                <p class="revenue-value" id="media-mensal">R$ 0,00</p>
+                                <span class="revenue-label">Base de cálculo</span>
+                            </div>
+                        </div>
+
+                        <div class="revenue-card">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Projeção Anual</h4>
+                                <p class="revenue-value" id="projecao-anual">R$ 0,00</p>
+                                <span class="revenue-label">Baseado nos dados</span>
+                            </div>
+                        </div>
+
+                        <div class="revenue-card">
+                            <div class="card-icon">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Alíquota Efetiva</h4>
+                                <p class="revenue-value" id="aliquota-efetiva">0,00%</p>
+                                <span class="revenue-label">Simples Nacional</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="revenue-controls">
+                        <div class="control-group">
+                            <label for="periodo-faturamento">Período de Referência</label>
+                            <select id="periodo-faturamento" class="cyber-input">
+                                <option value="anual">Anual (12 meses)</option>
+                                <option value="primeiro-trimestre">1º Trimestre</option>
+                                <option value="segundo-trimestre">2º Trimestre</option>
+                                <option value="terceiro-trimestre">3º Trimestre</option>
+                                <option value="quarto-trimestre">4º Trimestre</option>
+                            </select>
+                        </div>
+
+                        <button class="cyber-btn primary" id="importar-receitas">
+                            <i class="fas fa-file-import"></i> Importar CSV
+                        </button>
+                    </div>
+                </div>
+
+                <div class="cyber-form">
+                    <h3 class="form-title">
+                        <i class="fas fa-plus-circle"></i>
+                        Adicionar Receita
+                    </h3>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="cyber-label" for="receita-descricao">Descrição *</label>
+                            <input type="text" id="receita-descricao" class="cyber-input" placeholder="Venda de produtos, prestação de serviço, etc.">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="receita-valor">Valor (R$) *</label>
+                            <input type="number" id="receita-valor" class="cyber-input" step="0.01" min="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="receita-tipo">Tipo de Receita *</label>
+                            <select id="receita-tipo" class="cyber-input">
+                                <option value="venda">Venda de Mercadorias</option>
+                                <option value="servico">Prestação de Serviços</option>
+                                <option value="projeto">Projeto/Contrato</option>
+                                <option value="aluguel">Aluguel/Arrendamento</option>
+                                <option value="rendimento">Rendimentos Financeiros</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="receita-mes">Mês/Período *</label>
+                            <select id="receita-mes" class="cyber-input">
+                                <option value="1">Janeiro</option>
+                                <option value="2">Fevereiro</option>
+                                <option value="3">Março</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Maio</option>
+                                <option value="6">Junho</option>
+                                <option value="7">Julho</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Setembro</option>
+                                <option value="10">Outubro</option>
+                                <option value="11">Novembro</option>
+                                <option value="12">Dezembro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="receita-nota">Nº Nota Fiscal</label>
+                            <input type="text" id="receita-nota" class="cyber-input" placeholder="Número da NF">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="receita-cliente">Cliente/Contrato</label>
+                            <input type="text" id="receita-cliente" class="cyber-input" placeholder="Nome do cliente">
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="cyber-btn primary" id="add-receita">
+                            <i class="fas fa-save"></i> Salvar Receita
+                        </button>
+                        <button class="cyber-btn secondary" id="limpar-form-receita">
+                            <i class="fas fa-broom"></i> Limpar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="receitas-list">
+                    <h3 class="list-title">
+                        <i class="fas fa-list-alt"></i>
+                        Receitas Registradas
+                    </h3>
+                    <div class="cyber-table">
+                        <div class="table-header">
+                            <div class="header-cell">Descrição</div>
+                            <div class="header-cell">Valor</div>
+                            <div class="header-cell">Tipo</div>
+                            <div class="header-cell">Mês</div>
+                            <div class="header-cell">Cliente</div>
+                            <div class="header-cell">Ações</div>
+                        </div>
+                        <div class="table-body" id="receitas-table-body">
+                            <div class="empty-row">
+                                <i class="fas fa-file-invoice"></i>
+                                <p>Nenhuma receita registrada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button class="cyber-btn secondary" data-section="company-info">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                    <button class="cyber-btn primary" data-section="despesas">
+                        Próximo <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Seção Despesas -->
+            <section class="cyber-section" id="despesas-section">
+                <div class="section-header">
+                    <h2 class="hologram-title">
+                        <span class="title-glow">Despesas</span>
+                        <span class="title-sub">Custos e Investimentos</span>
+                    </h2>
+                    <p class="cyber-description">Registro de despesas operacionais e dedutíveis</p>
+                </div>
+
+                <div class="expenses-dashboard">
+                    <div class="expense-cards">
+                        <div class="expense-card">
+                            <div class="card-icon">
+                                <i class="fas fa-receipt"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Despesas Totais</h4>
+                                <p class="expense-value" id="total-despesas">R$ 0,00</p>
+                                <span class="expense-label">Anual</span>
+                            </div>
+                        </div>
+
+                        <div class="expense-card">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Por Categoria</h4>
+                                <div class="category-breakdown" id="categoria-breakdown">
+                                    <span>Carregando...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="expense-card">
+                            <div class="card-icon">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>% sobre Faturamento</h4>
+                                <p class="expense-value" id="percentual-despesas">0%</p>
+                                <span class="expense-label">Margem Operacional</span>
+                            </div>
+                        </div>
+
+                        <div class="expense-card">
+                            <div class="card-icon">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Lucro Estimado</h4>
+                                <p class="expense-value" id="lucro-operacional">R$ 0,00</p>
+                                <span class="expense-label">Faturamento - Despesas</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cyber-form">
+                    <h3 class="form-title">
+                        <i class="fas fa-plus-circle"></i>
+                        Adicionar Despesa
+                    </h3>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="cyber-label" for="despesa-descricao">Descrição *</label>
+                            <input type="text" id="despesa-descricao" class="cyber-input" placeholder="Aluguel, salários, material, etc.">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="despesa-valor">Valor (R$) *</label>
+                            <input type="number" id="despesa-valor" class="cyber-input" step="0.01" min="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="despesa-categoria">Categoria *</label>
+                            <select id="despesa-categoria" class="cyber-input">
+                                <option value="pessoal">Pessoal/Salários</option>
+                                <option value="aluguel">Aluguel/Arrendamento</option>
+                                <option value="energia">Energia/Água/Gás</option>
+                                <option value="telefonia">Telefonia/Internet</option>
+                                <option value="material">Material/Consumo</option>
+                                <option value="servicos">Serviços Terceirizados</option>
+                                <option value="tributos">Tributos/Taxas</option>
+                                <option value="depreciacao">Depreciação/Amortização</option>
+                                <option value="financeiras">Despesas Financeiras</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="despesa-mes">Mês/Período *</label>
+                            <select id="despesa-mes" class="cyber-input">
+                                <option value="1">Janeiro</option>
+                                <option value="2">Fevereiro</option>
+                                <option value="3">Março</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Maio</option>
+                                <option value="6">Junho</option>
+                                <option value="7">Julho</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Setembro</option>
+                                <option value="10">Outubro</option>
+                                <option value="11">Novembro</option>
+                                <option value="12">Dezembro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="despesa-nota">Nº Documento</label>
+                            <input type="text" id="despesa-nota" class="cyber-input" placeholder="NF, Recibo, etc.">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="cyber-label" for="despesa-dedutivel">Dedutível IR?</label>
+                            <select id="despesa-dedutivel" class="cyber-input">
+                                <option value="sim">Sim</option>
+                                <option value="nao">Não</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="cyber-btn primary" id="add-despesa">
+                            <i class="fas fa-save"></i> Salvar Despesa
+                        </button>
+                        <button class="cyber-btn secondary" id="limpar-form-despesa">
+                            <i class="fas fa-broom"></i> Limpar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="despesas-list">
+                    <h3 class="list-title">
+                        <i class="fas fa-list-alt"></i>
+                        Despesas Registradas
+                    </h3>
+                    <div class="cyber-table">
+                        <div class="table-header">
+                            <div class="header-cell">Descrição</div>
+                            <div class="header-cell">Valor</div>
+                            <div class="header-cell">Categoria</div>
+                            <div class="header-cell">Mês</div>
+                            <div class="header-cell">Dedutível</div>
+                            <div class="header-cell">Ações</div>
+                        </div>
+                        <div class="table-body" id="despesas-table-body">
+                            <div class="empty-row">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                                <p>Nenhuma despesa registrada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button class="cyber-btn secondary" data-section="faturamento">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                    <button class="cyber-btn primary" data-section="simples">
+                        Próximo <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Seção Simples Nacional -->
+            <section class="cyber-section" id="simples-section">
+                <div class="section-header">
+                    <h2 class="hologram-title">
+                        <span class="title-glow">Simples Nacional</span>
+                        <span class="title-sub">Cálculo do DAS</span>
+                    </h2>
+                    <p class="cyber-description">Simulação da guia única do Simples Nacional</p>
+                </div>
+
+                <div class="simples-calculator">
+                    <div class="calculator-header">
+                        <h3>
+                            <i class="fas fa-calculator"></i>
+                            Calculadora do DAS
+                        </h3>
+                        <div class="calculator-controls">
+                            <div class="control-group">
+                                <label for="periodo-das">Período de Apuração</label>
+                                <select id="periodo-das" class="cyber-input">
+                                    <option value="mensal">Mensal</option>
+                                    <option value="trimestral">Trimestral</option>
+                                    <option value="anual">Anual</option>
+                                </select>
+                            </div>
+                            <button class="cyber-btn primary" id="calcular-das">
+                                <i class="fas fa-sync-alt"></i> Calcular
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="calculator-body">
+                        <div class="input-section">
+                            <div class="form-group">
+                                <label class="cyber-label" for="faturamento-periodo">Faturamento do Período (R$)</label>
+                                <input type="number" id="faturamento-periodo" class="cyber-input" value="0" step="0.01">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="cyber-label" for="anexo">Anexo do Simples</label>
+                                <select id="anexo" class="cyber-input">
+                                    <option value="I">Anexo I - Comércio</option>
+                                    <option value="II">Anexo II - Indústria</option>
+                                    <option value="III">Anexo III - Serviços</option>
+                                    <option value="IV">Anexo IV - Serviços</option>
+                                    <option value="V">Anexo V - Serviços</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="cyber-label" for="atividade-simples">Atividade Principal</label>
+                                <select id="atividade-simples" class="cyber-input">
+                                    <option value="comercio">Comércio</option>
+                                    <option value="industria">Indústria</option>
+                                    <option value="servicos">Serviços</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="results-section">
+                            <div class="result-card highlight">
+                                <div class="result-header">
+                                    <h4>DAS do Período</h4>
+                                    <div class="result-badge">
+                                        <span id="das-valor">R$ 0,00</span>
+                                    </div>
+                                </div>
+                                <div class="result-details">
+                                    <div class="detail-item">
+                                        <span>Alíquota Efetiva:</span>
+                                        <span id="aliquota-das">0,00%</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span>Valor Devido:</span>
+                                        <span id="valor-devido-das">R$ 0,00</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span>Vencimento:</span>
+                                        <span id="vencimento-das">20º dia útil</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="result-grid">
+                                <div class="result-item">
+                                    <span class="item-label">ICMS</span>
+                                    <span class="item-value" id="icms-value">R$ 0,00</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">ISS</span>
+                                    <span class="item-value" id="iss-value">R$ 0,00</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">PIS/COFINS</span>
+                                    <span class="item-value" id="pis-cofins-value">R$ 0,00</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">CPP</span>
+                                    <span class="item-value" id="cpp-value">R$ 0,00</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">IRPJ</span>
+                                    <span class="item-value" id="irpj-simples-value">R$ 0,00</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">CSLL</span>
+                                    <span class="item-value" id="csll-simples-value">R$ 0,00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="aliquotas-table">
+                        <h4>
+                            <i class="fas fa-table"></i>
+                            Tabela de Alíquotas - Anexo I (Comércio)
+                        </h4>
+                        <div class="cyber-table">
+                            <div class="table-header">
+                                <div class="header-cell">Faixa</div>
+                                <div class="header-cell">Alíquota</div>
+                                <div class="header-cell">Parcela a Deduzir</div>
+                                <div class="header-cell">Faturamento</div>
+                            </div>
+                            <div class="table-body">
+                                <div class="table-row">
+                                    <div class="table-cell">1ª Faixa</div>
+                                    <div class="table-cell">4,00%</div>
+                                    <div class="table-cell">R$ 0,00</div>
+                                    <div class="table-cell">Até R$ 180.000,00</div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell">2ª Faixa</div>
+                                    <div class="table-cell">7,30%</div>
+                                    <div class="table-cell">R$ 5.940,00</div>
+                                    <div class="table-cell">R$ 180.000,01 a R$ 360.000,00</div>
+                                </div>
+                                <div class="table-row">
+                                    <div class="table-cell">3ª Faixa</div>
+                                    <div class="table-cell">9,50%</div>
+                                    <div class="table-cell">R$ 13.860,00</div>
+                                    <div class="table-cell">R$ 360.000,01 a R$ 720.000,00</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button class="cyber-btn secondary" data-section="despesas">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                    <button class="cyber-btn primary" data-section="irpj">
+                        Próximo <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Seção IRPJ/CSLL -->
+            <section class="cyber-section" id="irpj-section">
+                <div class="section-header">
+                    <h2 class="hologram-title">
+                        <span class="title-glow">IRPJ & CSLL</span>
+                        <span class="title-sub">Lucro Real/Presumido</span>
+                    </h2>
+                    <p class="cyber-description">Cálculo de impostos sobre o lucro da empresa</p>
+                </div>
+
+                <div class="tax-calculator">
+                    <div class="calculator-tabs">
+                        <div class="tab-nav">
+                            <button class="tab-btn active" data-tab="simples-tab">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                                Simples Nacional
+                            </button>
+                            <button class="tab-btn" data-tab="presumido-tab">
+                                <i class="fas fa-calculator"></i>
+                                Lucro Presumido
+                            </button>
+                            <button class="tab-btn" data-tab="real-tab">
+                                <i class="fas fa-balance-scale"></i>
+                                Lucro Real
+                            </button>
+                        </div>
+
+                        <div class="tab-content">
+                            <!-- Tab Simples Nacional -->
+                            <div class="tab-pane active" id="simples-tab">
+                                <div class="cyber-alert success">
+                                    <div class="alert-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="alert-content">
+                                        <h4>✅ Isenção no Simples Nacional</h4>
+                                        <p>Como Microempresa no Simples Nacional, você está <strong>isentdo de IRPJ e CSLL</strong> como impostos separados. Esses impostos já estão incluídos no cálculo do DAS com alíquotas reduzidas.</p>
+                                    </div>
+                                </div>
+
+                                <div class="simples-details">
+                                    <h4>
+                                        <i class="fas fa-info-circle"></i>
+                                        Detalhes do Cálculo
+                                    </h4>
+                                    <div class="details-grid">
+                                        <div class="detail-card">
+                                            <h5>IRPJ no DAS</h5>
+                                            <p class="detail-value" id="irpj-incluso">R$ 0,00</p>
+                                            <span class="detail-label">Incluso no Simples</span>
+                                        </div>
+                                        <div class="detail-card">
+                                            <h5>CSLL no DAS</h5>
+                                            <p class="detail-value" id="csll-incluso">R$ 0,00</p>
+                                            <span class="detail-label">Incluso no Simples</span>
+                                        </div>
+                                        <div class="detail-card">
+                                            <h5>Alíquota Efetiva</h5>
+                                            <p class="detail-value" id="aliquota-total">0,00%</p>
+                                            <span class="detail-label">Total de impostos</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tab Lucro Presumido -->
+                            <div class="tab-pane" id="presumido-tab">
+                                <div class="cyber-alert warning">
+                                    <div class="alert-icon">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                    <div class="alert-content">
+                                        <h4>⚠️ Opcional para Microempresas</h4>
+                                        <p>O Lucro Presumido é <strong>opcional para ME</strong>. No Simples Nacional, você não precisa calcular IRPJ/CSLL separadamente.</p>
+                                    </div>
+                                </div>
+
+                                <div class="presumido-calculator">
+                                    <h4>
+                                        <i class="fas fa-calculator"></i>
+                                        Cálculo Lucro Presumido
+                                    </h4>
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label class="cyber-label" for="faturamento-presumido">Faturamento 12 meses (R$)</label>
+                                            <input type="number" id="faturamento-presumido" class="cyber-input" value="0" step="0.01">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="cyber-label" for="percentual-presuncao">% Presunção de Lucro</label>
+                                            <select id="percentual-presuncao" class="cyber-input">
+                                                <option value="8">8% - Comércio/Indústria</option>
+                                                <option value="32">32% - Serviços em geral</option>
+                                                <option value="16">16% - Serviços de transporte</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="calculation-results">
+                                        <div class="result-step">
+                                            <span class="step-label">Lucro Presumido:</span>
+                                            <span class="step-value" id="lucro-presumido">R$ 0,00</span>
+                                        </div>
+                                        <div class="result-step">
+                                            <span class="step-label">IRPJ (15%):</span>
+                                            <span class="step-value" id="irpj-presumido">R$ 0,00</span>
+                                        </div>
+                                        <div class="result-step">
+                                            <span class="step-label">Adicional IRPJ (10%):</span>
+                                            <span class="step-value" id="adicional-irpj">R$ 0,00</span>
+                                        </div>
+                                        <div class="result-step">
+                                            <span class="step-label">CSLL (9%):</span>
+                                            <span class="step-value" id="csll-presumido">R$ 0,00</span>
+                                        </div>
+                                        <div class="result-step total">
+                                            <span class="step-label">Total IRPJ/CSLL:</span>
+                                            <span class="step-value" id="total-presumido">R$ 0,00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tab Lucro Real -->
+                            <div class="tab-pane" id="real-tab">
+                                <div class="cyber-alert warning">
+                                    <div class="alert-icon">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </div>
+                                    <div class="alert-content">
+                                        <h4>⚠️ Não Aplicável para ME no Simples</h4>
+                                        <p>Microempresas optantes pelo Simples Nacional <strong>não podem adotar o Lucro Real</strong>. Esta simulação é apenas para fins comparativos.</p>
+                                    </div>
+                                </div>
+
+                                <div class="real-calculator">
+                                    <h4>
+                                        <i class="fas fa-balance-scale"></i>
+                                        Cálculo Lucro Real
+                                    </h4>
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label class="cyber-label" for="lucro-contabil">Lucro Contábil (R$)</label>
+                                            <input type="number" id="lucro-contabil" class="cyber-input" value="0" step="0.01">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="cyber-label" for="ajustes-fiscais">Ajustes Fiscais (+/-)</label>
+                                            <input type="number" id="ajustes-fiscais" class="cyber-input" value="0" step="0.01">
+                                        </div>
+                                    </div>
+
+                                    <div class="calculation-results">
+                                        <div class="result-step">
+                                            <span class="step-label">Base de Cálculo IRPJ:</span>
+                                            <span class="step-value" id="base-irpj">R$ 0,00</span>
+                                        </div>
+                                        <div class="result-step">
+                                            <span class="step-label">IRPJ (15%):</span>
+                                            <span class="step-value" id="irpj-real">R$ 0,00</span>
+                                        </div>
+                                        <div class="result-step">
+                                            <span class="step-label">Adicional IRPJ (10%):</span>
+                                            <span class="step-value" id="adicional-irpj-real">R$ 0,00</span>
+                                        </div>
+                                        <div class="result-step">
+                                            <span class="step-label">Base de Cálculo CSLL:</span>
+                                            <span class="step-value" id="base-csll">R$ 0,00</span>
+                                        </div>
+                                        <div class="result-step">
+                                            <span class="step-label">CSLL (9%):</span>
+                                            <span class="step-value" id="csll-real">R$ 0,00</span>
+                                        </div>
+                                        <div class="result-step total">
+                                            <span class="step-label">Total IRPJ/CSLL:</span>
+                                            <span class="step-value" id="total-real">R$ 0,00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button class="cyber-btn secondary" data-section="simples">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                    <button class="cyber-btn primary" data-section="irpf">
+                        Próximo <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Seção IRPF -->
+            <section class="cyber-section" id="irpf-section">
+                <div class="section-header">
+                    <h2 class="hologram-title">
+                        <span class="title-glow">IRPF</span>
+                        <span class="title-sub">Imposto de Renda Pessoa Física</span>
+                    </h2>
+                    <p class="cyber-description">Cálculo de IR para sócios e administradores</p>
+                </div>
+
+                <div class="irpf-calculator">
+                    <div class="irpf-intro">
+                        <div class="cyber-alert info">
+                            <div class="alert-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h4>📋 IRPF para Sócios de ME</h4>
+                                <p>Como sócio de Microempresa, você deve declarar seus <strong>pró-labore e lucros/distribuições</strong> no IRPF. No Simples Nacional, o pró-labore é a principal forma de retirada.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="socios-irpf">
+                        <h3>
+                            <i class="fas fa-users"></i>
+                            Sócios e Pro-Labore
+                        </h3>
+                        <div class="socios-table">
+                            <div class="table-header">
+                                <div class="header-cell">Sócio</div>
+                                <div class="header-cell">Participação</div>
+                                <div class="header-cell">Pró-Labore Mensal</div>
+                                <div class="header-cell">Retiradas</div>
+                                <div class="header-cell">IRPF Estimado</div>
+                            </div>
+                            <div class="table-body" id="socios-irpf-table">
+                                <div class="empty-row">
+                                    <i class="fas fa-user-friends"></i>
+                                    <p>Nenhum sócio cadastrado</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="add-socio-irpf">
+                            <button class="cyber-btn secondary" id="add-socio-irpf">
+                                <i class="fas fa-user-plus"></i> Adicionar Sócio
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="prolabore-calculator">
+                        <h3>
+                            <i class="fas fa-calculator"></i>
+                            Cálculo de Pró-Labore
+                        </h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="cyber-label" for="prolabore-mensal">Pró-Labore Mensal (R$)</label>
+                                <input type="number" id="prolabore-mensal" class="cyber-input" value="0" step="0.01">
+                            </div>
+                            <div class="form-group">
+                                <label class="cyber-label" for="meses-prolabore">Meses Trabalhados</label>
+                                <input type="number" id="meses-prolabore" class="cyber-input" value="13" min="1" max="13">
+                            </div>
+                            <div class="form-group">
+                                <label class="cyber-label" for="dependentes-irpf">Dependentes IRPF</label>
+                                <input type="number" id="dependentes-irpf" class="cyber-input" value="0" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label class="cyber-label" for="outras-deducoes">Outras Deduções (R$)</label>
+                                <input type="number" id="outras-deducoes" class="cyber-input" value="0" step="0.01">
+                            </div>
+                        </div>
+
+                        <div class="calculation-results">
+                            <h4>Resultado do Cálculo</h4>
+                            <div class="results-grid">
+                                <div class="result-item">
+                                    <span class="item-label">Pró-Labore Anual:</span>
+                                    <span class="item-value" id="prolabore-anual">R$ 0,00</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">INSS Retido:</span>
+                                    <span class="item-value" id="inss-prolabore">R$ 0,00</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">Base de Cálculo IRPF:</span>
+                                    <span class="item-value" id="base-irpf">R$ 0,00</span>
+                                </div>
+                                <div class="result-item">
+                                    <span class="item-label">IRPF Devido:</span>
+                                    <span class="item-value" id="irpf-devido">R$ 0,00</span>
+                                </div>
+                                <div class="result-item highlight">
+                                    <span class="item-label">Total a Recolher:</span>
+                                    <span class="item-value" id="total-recolher">R$ 0,00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="distribuicoes">
+                        <h3>
+                            <i class="fas fa-hand-holding-usd"></i>
+                            Distribuição de Lucros
+                        </h3>
+                        <div class="cyber-alert info">
+                            <div class="alert-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="alert-content">
+                                <h4>💡 Isenção de IR sobre Lucros</h4>
+                                <p>Para ME no Simples Nacional, as <strong>distribuições de lucros são isentas de IRPF</strong> (até o limite do faturamento). Apenas o pró-labore é tributado.</p>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="cyber-label" for="lucro-distribuir">Lucro Disponível (R$)</label>
+                                <input type="number" id="lucro-distribuir" class="cyber-input" value="0" step="0.01">
+                            </div>
+                            <div class="form-group">
+                                <label class="cyber-label" for="percentual-distribuicao">% para Distribuição</label>
+                                <input type="number" id="percentual-distribuicao" class="cyber-input" value="100" min="0" max="100" step="1">
+                            </div>
+                        </div>
+
+                        <div class="distribution-results">
+                            <div class="result-card">
+                                <div class="result-header">
+                                    <h5>Total para Distribuir</h5>
+                                    <span class="result-value" id="total-distribuir">R$ 0,00</span>
+                                </div>
+                                <div class="result-footer">
+                                    <span class="result-label">Isento de IRPF</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button class="cyber-btn secondary" data-section="irpj">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                    <button class="cyber-btn primary" data-section="simulation">
+                        Próximo <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Seção Simulação Completa -->
+            <section class="cyber-section" id="simulation-section">
+                <div class="section-header">
+                    <h2 class="hologram-title">
+                        <span class="title-glow">Simulação</span>
+                        <span class="title-sub">Completa de Impostos</span>
+                    </h2>
+                    <p class="cyber-description">Visão geral de todos os tributos e obrigações</p>
+                    <div class="simulation-controls">
+                        <button class="cyber-btn primary" id="run-full-simulation">
+                            <i class="fas fa-play-circle"></i> Executar Simulação
+                        </button>
+                        <button class="cyber-btn secondary" id="what-if-btn">
+                            <i class="fas fa-flask"></i> Cenário "E Se"
+                        </button>
+                    </div>
+                </div>
+
+                <div class="simulation-dashboard">
+                    <div class="dashboard-grid">
+                        <div class="simulation-card large">
+                            <div class="card-header">
+                                <h3>
+                                    <i class="fas fa-chart-line"></i>
+                                    Resumo Fiscal Anual
+                                </h3>
+                                <div class="card-actions">
+                                    <button class="icon-btn" title="Exportar">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="summary-grid">
+                                    <div class="summary-item">
+                                        <span class="summary-label">Faturamento Bruto:</span>
+                                        <span class="summary-value" id="sim-faturamento">R$ 0,00</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">Despesas Totais:</span>
+                                        <span class="summary-value" id="sim-despesas">R$ 0,00</span>
+                                    </div>
+                                    <div class="summary-item highlight">
+                                        <span class="summary-label">Lucro Operacional:</span>
+                                        <span class="summary-value" id="sim-lucro">R$ 0,00</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">DAS Simples (Anual):</span>
+                                        <span class="summary-value" id="sim-das">R$ 0,00</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">Pró-Labore (Anual):</span>
+                                        <span class="summary-value" id="sim-prolabore">R$ 0,00</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">INSS sobre Pró-Labore:</span>
+                                        <span class="summary-value" id="sim-inss">R$ 0,00</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-label">IRPF sobre Pró-Labore:</span>
+                                        <span class="summary-value" id="sim-irpf">R$ 0,00</span>
+                                    </div>
+                                    <div class="summary-item total">
+                                        <span class="summary-label">Carga Tributária Total:</span>
+                                        <span class="summary-value" id="sim-carga-tributaria">R$ 0,00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="simulation-card">
+                            <div class="card-header">
+                                <h3>
+                                    <i class="fas fa-percentage"></i>
+                                    Alíquotas Efetivas
+                                </h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="aliquotas-chart">
+                                    <div class="aliquota-item">
+                                        <div class="aliquota-info">
+                                            <span class="aliquota-label">Simples Nacional</span>
+                                            <span class="aliquota-value" id="aliquota-simples">0,00%</span>
+                                        </div>
+                                        <div class="aliquota-bar">
+                                            <div class="bar-fill" id="bar-simples" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="aliquota-item">
+                                        <div class="aliquota-info">
+                                            <span class="aliquota-label">INSS Pró-Labore</span>
+                                            <span class="aliquota-value" id="aliquota-inss">0,00%</span>
+                                        </div>
+                                        <div class="aliquota-bar">
+                                            <div class="bar-fill" id="bar-inss" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="aliquota-item">
+                                        <div class="aliquota-info">
+                                            <span class="aliquota-label">IRPF Pró-Labore</span>
+                                            <span class="aliquota-value" id="aliquota-irpf">0,00%</span>
+                                        </div>
+                                        <div class="aliquota-bar">
+                                            <div class="bar-fill" id="bar-irpf" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="aliquota-item total">
+                                        <div class="aliquota-info">
+                                            <span class="aliquota-label">Carga Tributária Total</span>
+                                            <span class="aliquota-value" id="aliquota-total">0,00%</span>
+                                        </div>
+                                        <div class="aliquota-bar">
+                                            <div class="bar-fill" id="bar-total" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="simulation-card">
+                            <div class="card-header">
+                                <h3>
+                                    <i class="fas fa-calendar-alt"></i>
+                                    Obrigações Acessórias
+                                </h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="obrigacoes-list">
+                                    <div class="obrigacao-item">
+                                        <i class="fas fa-check-circle obrigacao-icon"></i>
+                                        <div class="obrigacao-content">
+                                            <h5>DAS Simples Nacional</h5>
+                                            <p>Vencimento: 20º dia útil</p>
+                                        </div>
+                                    </div>
+                                    <div class="obrigacao-item">
+                                        <i class="fas fa-check-circle obrigacao-icon"></i>
+                                        <div class="obrigacao-content">
+                                            <h5>GPS - Pró-Labore</h5>
+                                            <p>Vencimento: 15º dia útil</p>
+                                        </div>
+                                    </div>
+                                    <div class="obrigacao-item">
+                                        <i class="fas fa-check-circle obrigacao-icon"></i>
+                                        <div class="obrigacao-content">
+                                            <h5>Declaração Anual - DIRF</h5>
+                                            <p>Entrega: Até final de fevereiro</p>
+                                        </div>
+                                    </div>
+                                    <div class="obrigacao-item">
+                                        <i class="fas fa-check-circle obrigacao-icon"></i>
+                                        <div class="obrigacao-content">
+                                            <h5>Declaração Anual - DASN</h5>
+                                            <p>Entrega: Até 31 de janeiro</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="simulation-card">
+                            <div class="card-header">
+                                <h3>
+                                    <i class="fas fa-lightbulb"></i>
+                                    Recomendações
+                                </h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="recommendations">
+                                    <div class="recommendation-item">
+                                        <i class="fas fa-chart-line recommendation-icon"></i>
+                                        <p>Mantenha o faturamento abaixo de R$ 360.000/ano para manter o benefício fiscal.</p>
+                                    </div>
+                                    <div class="recommendation-item">
+                                        <i class="fas fa-file-invoice-dollar recommendation-icon"></i>
+                                        <p>Documente todas as despesas para fins de comprovação fiscal.</p>
+                                    </div>
+                                    <div class="recommendation-item">
+                                        <i class="fas fa-user-tie recommendation-icon"></i>
+                                        <p>Estabeleça pró-labore compatível com as funções exercidas.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="what-if-panel" id="what-if-panel" style="display: none;">
+                    <div class="panel-header">
+                        <h3>
+                            <i class="fas fa-flask"></i>
+                            Cenário "E Se"
+                        </h3>
+                        <button class="close-btn" id="close-what-if">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="panel-content">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="cyber-label" for="what-if-faturamento">Aumento de Faturamento (R$)</label>
+                                <input type="number" id="what-if-faturamento" class="cyber-input" value="0" step="1000">
+                            </div>
+                            <div class="form-group">
+                                <label class="cyber-label" for="what-if-despesas">Aumento de Despesas (R$)</label>
+                                <input type="number" id="what-if-despesas" class="cyber-input" value="0" step="1000">
+                            </div>
+                            <div class="form-group">
+                                <label class="cyber-label" for="what-if-prolabore">Ajuste Pró-Labore (R$)</label>
+                                <input type="number" id="what-if-prolabore" class="cyber-input" value="0" step="100">
+                            </div>
+                            <div class="form-group">
+                                <label class="cyber-label" for="what-if-anexo">Mudar Anexo do Simples</label>
+                                <select id="what-if-anexo" class="cyber-input">
+                                    <option value="I">Anexo I - Comércio</option>
+                                    <option value="II">Anexo II - Indústria</option>
+                                    <option value="III">Anexo III - Serviços</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="panel-actions">
+                            <button class="cyber-btn primary" id="apply-what-if">
+                                <i class="fas fa-play"></i> Aplicar Cenário
+                            </button>
+                            <button class="cyber-btn secondary" id="reset-what-if">
+                                <i class="fas fa-undo"></i> Voltar ao Real
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button class="cyber-btn secondary" data-section="irpf">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                    <button class="cyber-btn primary" data-section="validation">
+                        Próximo <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Seção Validação -->
+            <section class="cyber-section" id="validation-section">
+                <div class="section-header">
+                    <h2 class="hologram-title">
+                        <span class="title-glow">Validação</span>
+                        <span class="title-sub">Conformidade Fiscal</span>
+                    </h2>
+                    <p class="cyber-description">Verificação de obrigações e alertas</p>
+                </div>
+
+                <div class="validation-dashboard">
+                    <div class="validation-grid">
+                        <div class="validation-card status">
+                            <div class="card-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Conformidade Geral</h4>
+                                <p class="validation-status" id="status-conformidade">Verificando...</p>
+                                <span class="validation-detail">Análise completa do enquadramento</span>
+                            </div>
+                        </div>
+
+                        <div class="validation-card">
+                            <div class="card-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Limite ME</h4>
+                                <p class="validation-status" id="status-limite">Verificando...</p>
+                                <span class="validation-detail">R$ 360.000,00/ano</span>
+                            </div>
+                        </div>
+
+                        <div class="validation-card">
+                            <div class="card-icon">
+                                <i class="fas fa-file-contract"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Documentos</h4>
+                                <p class="validation-status" id="status-documentos">Verificando...</p>
+                                <span class="validation-detail">CNPJ, contratos, etc.</span>
+                            </div>
+                        </div>
+
+                        <div class="validation-card">
+                            <div class="card-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <div class="card-content">
+                                <h4>Obrigações</h4>
+                                <p class="validation-status" id="status-obrigacoes">Verificando...</p>
+                                <span class="validation-detail">Acessórias e principais</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="validation-details">
+                        <h3>
+                            <i class="fas fa-list-alt"></i>
+                            Resultados da Validação
+                        </h3>
+                        <div class="details-list" id="validation-results">
+                            <!-- Resultados serão inseridos aqui -->
+                        </div>
+                    </div>
+
+                    <div class="validation-alerts">
+                        <h3>
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Alertas Importantes
+                        </h3>
+                        <div class="alerts-list" id="validation-alerts">
+                            <!-- Alertas serão inseridos aqui -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button class="cyber-btn secondary" data-section="simulation">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                    <button class="cyber-btn primary" data-section="reports">
+                        Próximo <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Seção Relatórios -->
+            <section class="cyber-section" id="reports-section">
+                <div class="section-header">
+                    <h2 class="hologram-title">
+                        <span class="title-glow">Relatórios</span>
+                        <span class="title-sub">Profissionais e Exportação</span>
+                    </h2>
+                    <p class="cyber-description">Documentação completa para análise</p>
+                    <div class="report-controls">
+                        <button class="cyber-btn secondary" id="print-report">
+                            <i class="fas fa-print"></i> Imprimir
+                        </button>
+                        <button class="cyber-btn secondary" id="fullscreen-report">
+                            <i class="fas fa-expand"></i> Tela Cheia
+                        </button>
+                    </div>
+                </div>
+
+                <div class="reports-container">
+                    <div class="reports-preview" id="report-preview">
+                        <div class="report-header">
+                            <div class="header-content">
+                                <div class="report-logo">
+                                    <div class="logo-symbol">📊</div>
+                                    <div class="logo-text">
+                                        <h1>RELATÓRIO FISCAL COMPLETO</h1>
+                                        <p class="report-subtitle">Microempresa - Simples Nacional 2026</p>
+                                    </div>
+                                </div>
+                                <div class="header-info">
+                                    <p><strong>Data:</strong> <span id="report-date">--/--/----</span></p>
+                                    <p><strong>Hora:</strong> <span id="report-time">--:--</span></p>
+                                    <p><strong>Página:</strong> 1/3</p>
+                                </div>
+                            </div>
+                            <div class="header-divider"></div>
+                        </div>
+
+                        <div class="report-content">
+                            <div class="report-section">
+                                <h2>📋 Dados da Empresa</h2>
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <strong>Razão Social:</strong>
+                                        <span id="report-razao-social">Não informado</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <strong>CNPJ:</strong>
+                                        <span id="report-cnpj">Não informado</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <strong>Data Abertura:</strong>
+                                        <span id="report-data-abertura">Não informado</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <strong>CNAE:</strong>
+                                        <span id="report-cnae">Não informado</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="report-section">
+                                <h2>💰 Resumo Financeiro</h2>
+                                <div class="financial-summary">
+                                    <div class="summary-card">
+                                        <h3>Faturamento Anual</h3>
+                                        <p class="summary-value" id="report-faturamento">R$ 0,00</p>
+                                        <p class="summary-detail">Total de receitas</p>
+                                    </div>
+                                    <div class="summary-card">
+                                        <h3>Despesas Anuais</h3>
+                                        <p class="summary-value" id="report-despesas">R$ 0,00</p>
+                                        <p class="summary-detail">Custos operacionais</p>
+                                    </div>
+                                    <div class="summary-card">
+                                        <h3>Lucro Operacional</h3>
+                                        <p class="summary-value" id="report-lucro">R$ 0,00</p>
+                                        <p class="summary-detail">Faturamento - Despesas</p>
+                                    </div>
+                                    <div class="summary-card">
+                                        <h3>DAS Anual</h3>
+                                        <p class="summary-value" id="report-das">R$ 0,00</p>
+                                        <p class="summary-detail">Simples Nacional</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="report-section">
+                                <h2>📊 Simulação de Impostos</h2>
+                                <div class="tax-simulation">
+                                    <table class="tax-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Imposto</th>
+                                                <th>Base de Cálculo</th>
+                                                <th>Alíquota</th>
+                                                <th>Valor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>DAS - Simples Nacional</td>
+                                                <td id="report-base-simples">R$ 0,00</td>
+                                                <td id="report-aliquota-simples">0,00%</td>
+                                                <td id="report-valor-simples">R$ 0,00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>INSS - Pró-Labore</td>
+                                                <td id="report-base-inss">R$ 0,00</td>
+                                                <td id="report-aliquota-inss">0,00%</td>
+                                                <td id="report-valor-inss">R$ 0,00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>IRPF - Pró-Labore</td>
+                                                <td id="report-base-irpf">R$ 0,00</td>
+                                                <td id="report-aliquota-irpf">0,00%</td>
+                                                <td id="report-valor-irpf">R$ 0,00</td>
+                                            </tr>
+                                            <tr class="total-row">
+                                                <td><strong>Total de Tributos</strong></td>
+                                                <td></td>
+                                                <td id="report-aliquota-total">0,00%</td>
+                                                <td><strong id="report-total-tributos">R$ 0,00</strong></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="report-section">
+                                <h2>⚖️ Observações Fiscais</h2>
+                                <div class="observations">
+                                    <p><strong>Este é um relatório de simulação fiscal.</strong> Não substitui a declaração oficial nem o trabalho de um contador.</p>
+                                    <p><strong>Microempresa no Simples Nacional</strong> tem benefícios fiscais específicos. Consulte as condições de manutenção.</p>
+                                    <p><strong>Pró-labore deve ser estabelecido</strong> de acordo com as funções exercidas e conforme mercado.</p>
+                                    <p><strong>Consulte sempre um contador</strong> para validação final e orientações específicas.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="report-footer">
+                            <p>--- FIM DO RELATÓRIO ---</p>
+                            <p class="footer-note">Gerado pelo Sistema Fiscal para Microempresas - Simulador Completo 2026</p>
+                            <p class="footer-company">S&Q TECNOLOGIA DA INFORMACAO LTDA | CNPJ: 64.684.955/0001-98</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="export-options">
+                    <h3>
+                        <i class="fas fa-download"></i>
+                        Opções de Exportação
+                    </h3>
+                    <div class="options-grid">
+                        <div class="option-card">
+                            <div class="option-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <h4>PDF Profissional</h4>
+                            <p>Relatório completo para contador</p>
+                            <button class="cyber-btn primary" id="export-pdf">
+                                <i class="fas fa-download"></i> Gerar PDF
+                            </button>
+                        </div>
+
+                        <div class="option-card">
+                            <div class="option-icon">
+                                <i class="fas fa-file-excel"></i>
+                            </div>
+                            <h4>Planilha Excel</h4>
+                            <p>Dados financeiros para análise</p>
+                            <button class="cyber-btn secondary" id="export-excel">
+                                <i class="fas fa-download"></i> Exportar Excel
+                            </button>
+                        </div>
+
+                        <div class="option-card">
+                            <div class="option-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <h4>Backup Completo</h4>
+                            <p>Salve todos os dados localmente</p>
+                            <button class="cyber-btn secondary" id="export-backup">
+                                <i class="fas fa-save"></i> Fazer Backup
+                            </button>
+                        </div>
+
+                        <div class="option-card">
+                            <div class="option-icon">
+                                <i class="fas fa-eraser"></i>
+                            </div>
+                            <h4>Limpar Dados</h4>
+                            <p>Reiniciar simulação do zero</p>
+                            <button class="cyber-btn danger" id="clear-data">
+                                <i class="fas fa-trash"></i> Limpar Tudo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="final-notes">
+                    <div class="cyber-alert info">
+                        <div class="alert-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4>🎓 Sistema Educacional</h4>
+                            <p>Este sistema é um <strong>simulador e organizador fiscal</strong> para Microempresas. As simulações são baseadas na legislação vigente para 2026. Não substitui a declaração oficial nem o trabalho de um contador qualificado.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button class="cyber-btn secondary" data-section="validation">
+                        <i class="fas fa-arrow-left"></i> Voltar
+                    </button>
+                    <button class="cyber-btn primary" data-section="home">
+                        <i class="fas fa-home"></i> Voltar ao Início
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <footer class="cyber-footer">
+            <div class="footer-content">
+                <div class="footer-grid">
+                    <div class="footer-section">
+                        <h4>
+                            <i class="fas fa-building"></i>
+                            S&Q TECNOLOGIA
+                        </h4>
+                        <p>CNPJ: 64.684.955/0001-98</p>
+                        <p>Rua Pais Leme, 215 - Conj. 1713</p>
+                        <p>Pinheiros - São Paulo/SP</p>
+                        <p>CEP: 05.424-150</p>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>
+                            <i class="fas fa-phone-alt"></i>
+                            Contato
+                        </h4>
+                        <p>Tel: (71) 98260-7352</p>
+                        <p>Email: contato@sqtecnologia.com.br</p>
+                        <p>Horário: Seg-Sex, 9h-18h</p>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>
+                            <i class="fas fa-shield-alt"></i>
+                            Segurança
+                        </h4>
+                        <p>Sistema 100% Offline</p>
+                        <p>Dados armazenados localmente</p>
+                        <p>Nenhuma transmissão de dados</p>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>
+                            <i class="fas fa-balance-scale"></i>
+                            Legal
+                        </h4>
+                        <p>© 2026 Sistema Fiscal ME</p>
+                        <p>Versão 2.0.0</p>
+                        <p>Para fins educacionais</p>
+                    </div>
+                </div>
+
+                <div class="footer-divider"></div>
+
+                <div class="footer-bottom">
+                    <p class="disclaimer">
+                        <i class="fas fa-exclamation-circle"></i>
+                        Simulador fiscal para fins educacionais. Consulte um contador para decisões fiscais.
+                    </p>
+                    <div class="footer-tech">
+                        <span>Built with</span>
+                        <i class="fas fa-heart tech-icon"></i>
+                        <span>for Brazilian Micro Businesses</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script-me.js"></script>
+</body>
+</html>
